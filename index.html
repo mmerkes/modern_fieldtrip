@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <style type="text/css">
+        #map {
+            height: 180px;
+        }
+    </style>
+
+    <title>Modern Field Trip</title>
+  </head>
+
+  <body>  
+    <script type="text/x-handlebars" id="application">
+
+    {{outlet}}
+
+    </script>
+
+    <script type="text/x-handlebars" id="index">
+      <h1>Welcome to the index!</h1>
+    </script>
+
+    <script type="text/x-handlebars" id="trips">
+      <h1>Trips</h1>
+
+      {{#each}}
+        {{#link-to 'trip' this tagName="h1"}}<a href="#">{{name}}</a>{{/link-to}}
+      {{/each}}
+
+      {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="trip">
+      <h2>{{name}}</h2>
+      {{#each place in places}}
+        <h4>{{place.name}}</h4>
+        <p>{{place.address}}</p>
+        <p>{{place.location.city}}, {{place.location.state}}</p>
+        <button {{bind-attr data-name=place.name data-id=this.id}} data-value='up'>Up</button>
+        <button {{bind-attr data-name=name}} data-value="down">Down</button>
+      {{/each}}
+
+        <div id="map"></div>
+    </script>
+
+    <!-- dependencies --> 
+    <script src="public/js/libs/jquery-2.1.0.min.js"></script>
+    <script src="public/js/libs/handlebars.js"></script>
+    <script src="public/js/libs/ember.js"></script>
+    <script src="public/js/libs/moment.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+    <!-- App js files -->
+    <script src="public/js/app.js"></script>
+    <script src="public/js/router.js"></script>
+    <script src="public/js/helpers/helpers.js"></script>
+
+    <!-- Models 
+    <script src="public/js/models/trip.js"></script>
+    <script src="public/js/models/place.js"></script>
+    <script src="public/js/models/user.js"></script>
+    <script src="public/js/models/location.js"></script> -->
+
+    <!-- Routes -->
+    <script src="public/js/routes/tripsRoute.js"></script>
+    <script src="public/js/routes/indexRoute.js"></script>
+    <script src="public/js/routes/tripRoute.js"></script>
+
+    <!-- Controllers -->
+    <script src="public/js/controllers/trips.js"></script>
+    <script src="public/js/controllers/trip.js"></script>
+
+    <!-- Views -->
+    <script src="public/js/views/tripView.js"></script>
+  </body>
+</html>
