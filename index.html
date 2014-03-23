@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="shortcut icon" 
+      type="image/png" 
+      href="public/images/myicon.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Modern Field Trip, Inc.">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-    <style type="text/css">
-        #map {
-            height: 180px;
-        }
-    </style>
+    <link href="public/css/style.css" rel="stylesheet">
 
     <title>Modern Field Trip</title>
   </head>
@@ -24,34 +23,218 @@
     </script>
 
     <script type="text/x-handlebars" id="index">
-      <h1>Welcome to the index!</h1>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false"  class="navbar-brand" href="#"><img class="img-responsive logo" src="public/images/logo_final_white-02.png"></a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              {{!-- <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#about">About</a></li>
+              <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#features">Features</a></li>
+              <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#buy">Buy</a></li> --}}
+            </ul>
+          </div>
+        </div>
+      </div> 
+
+      <div class="jumbotron">
+        <div class="container">
+          <div class="row">
+            <h1 class="headline">Plan it. Do it. Share it.</h1>
+            {{#link-to 'trips'}}<p>Modern Fieldtrip is an online platform that allows people to easily plan trips together.</p>{{/link-to}}
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid trip-section">
+        <div class="row trip-row">
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <img class="img-responsive trip-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+              <img class="profile" src="public/images/profile.png">
+              <button class="add-button">Add</button>
+              <h3>Lake Chelan</h3>
+              <h4>By Katie Daiger</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
+              <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div>
+            </div>
+          </div>
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <img class="img-responsive trip-img"  src="public/images/pumpkin-farm.jpg" alt="mountain">
+              <img class="profile" src="public/images/profile-girl.png">
+              <h3>Mountain Hike</h3>
+              <h4>By Amy Jones</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p> 
+               <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div>
+            </div>
+          </div>
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <img class="img-responsive trip-img"  src="public/images/flower-field.jpg" alt="flower">
+              <img class="profile" src="public/images/profile-man.png">
+              <h3>Tulip Field</h3>
+              <h4>By Mike Drew</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
+               <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div> 
+            </div>
+          </div>
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <img class="img-responsive trip-img"  src="public/images/flower-field.jpg" alt="flower">
+              <img class="profile" src="public/images/profile-man.png">
+              <h3>Tulip Field</h3>
+              <h4>By Mike Drew</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
+               <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div> 
+            </div>
+          </div>
+        
+
+        </div>{{!--End of row--}}
+      </div> {{!--End of Trip Container--}}
     </script>
 
     <script type="text/x-handlebars" id="trips">
-      <h1>Trips</h1>
-
-      {{#each}}
-        {{#link-to 'trip' this tagName="h1"}}<a href="#">{{name}}</a>{{/link-to}}
-      {{/each}}
+      {{!-- Dashboard --}}
+      <div class="container dashboard" id="dashboard">
+        <a   href="home.html"><img class="img-responsive logo-dash" src="public/images/logo_final_white-02.png"></a>
+        <a class="user" href="#">
+          <div class="user-img">
+            <img class="img-responsive" src="public/images/profile-girl.png">
+          </div>
+          <h3>Amy Jones</h3>
+        </a>
+        <div class="field-trips">
+          <ul>
+            {{#each}}
+                {{#link-to 'trip' this tagName="li"}}<a href="#">{{name}}</a>{{/link-to}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{!-- dashboard end --}}
 
       {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" id="trip">
-      <h2>{{name}}</h2>
-      {{#each place in places}}
-        <h4>{{place.name}}</h4>
-        <p>{{place.address}}</p>
-        <p>{{place.location.city}}, {{place.location.state}}</p>
-        <button {{bind-attr data-name=place.name data-id=this.id}} data-value='up'>Up</button>
-        <button {{bind-attr data-name=name}} data-value="down">Down</button>
-      {{/each}}
+    <script type="text/x-handlebars" id="trips/index">
+      <div class="container-fluid explore-section">
+        <div class="row trip-row explore">
+          <div class="trip-container col-md-4">  
+            <div class="trip cards">
+                <img class="img-responsive other-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+                <button class="add-button">Add</button>
+                <h3>Lake Chelan</h3>
+                <h5 class="location"><img class="location-icon" src="public/images/location-icon.png"> Lake Chelan</h5>
+                <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.
+                Praesent elementum ligul</p>
+                <p class="category">location</p>
+                <div class="other-bar"></div>
+              </div>
+          </div>
 
-        <div id="map"></div>
+          <div class="trip-container col-md-4">  
+            <div class="trip cards">
+                <img class="img-responsive other-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+                <button class="add-button">Add</button>
+                <h3>Lake Chelan</h3>
+                <h5 class="location"><img class="location-icon" src="public/images/location-icon.png"> Lake Chelan</h5>
+                <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.
+                Praesent elementum ligul</p>
+                <p class="category">location</p>
+                <div class="other-bar"></div>
+              </div>
+          </div>
+
+          <div class="trip-container col-md-4">  
+            <div class="trip cards">
+                <img class="img-responsive other-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+                <button class="add-button">Add</button>
+                <h3>Lake Chelan</h3>
+                <h5 class="location"><img class="location-icon" src="public/images/location-icon.png"> Lake Chelan</h5>
+                <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.
+                Praesent elementum ligul</p>
+                <p class="category">location</p>
+                <div class="other-bar"></div>
+              </div>
+          </div>
+
+          <div class="trip-container col-md-4">  
+            <div class="trip cards">
+                <img class="img-responsive other-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+                <button class="add-button">Add</button>
+                <h3>Lake Chelan</h3>
+                <h5 class="location"><img class="location-icon" src="public/images/location-icon.png"> Lake Chelan</h5>
+                <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.
+                Praesent elementum ligul</p>
+                <p class="category">location</p>
+                <div class="other-bar"></div>
+              </div>
+          </div>
+        </div>{{!--End of row--}}
+      </div> {{!--End of Trip Container--}}
+    </script>
+
+    <script type="text/x-handlebars" id="trip">
+      <button class="map-button">MAP</button>
+
+      <div class="container-fluid explore-section">
+        {{!-- map-extend THIS NEED TO TURN ON AND OFF. OFF being the default --}}
+        <div class="row trip-row explore map-extend">
+          <div class="title">
+            <h1>{{name}}</h1>
+          </div>
+          
+          <div class="trip-container col-md-10 col-md-offset-1">
+            <div class="card-list">
+            {{#each places}}
+              <img class="img-responsive card-img" {{bind-attr src=photo_url}}>
+              <button class="add-button">Add</button>
+              <div class="h-info">
+                <h3>{{name}}</h3>
+                <h4></h4>
+                <p>{{description}}</p>
+              </div>
+              <div class="h-info-category">
+                <p class="category">location</p>
+                <div class="other-bar"></div>
+              </div>
+              <div class="h-info-details">
+                <ul>
+                  <li class="hours">Hours:</li>
+                  <li class="days"><span class="green">M T W T</span> F S S</li>
+                  <li class="price">Price: <span class="green">$$</span></li>
+                  <li class="vote">Votes: <span class="green">3</span></li>
+                </ul>
+              </div>
+            {{/each}}
+            </div>
+          </div>
+        </div>{{!--End of row--}}
+        {{!-- MAP THIS NEED TO TURN ON AND OFF --}}
+      <div class="row map" id="map"></div>
+      </div> {{!--End of Trip Container--}}
+
+        <div id="map" class="map"></div>
     </script>
 
     <!-- dependencies --> 
     <script src="public/js/libs/jquery-2.1.0.min.js"></script>
+    <script src="public/js/libs/bootstrap.min.js"></script>
+    <script src="public/js/libs/smooth-scroll.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/ovq1mow.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="public/js/libs/handlebars.js"></script>
     <script src="public/js/libs/ember.js"></script>
     <script src="public/js/libs/moment.js"></script>
@@ -79,5 +262,6 @@
 
     <!-- Views -->
     <script src="public/js/views/tripView.js"></script>
+    <script src="public/js/views/tripsView.js"></script>
   </body>
 </html>

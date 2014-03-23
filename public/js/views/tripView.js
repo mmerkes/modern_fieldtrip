@@ -31,5 +31,12 @@ App.TripView = Ember.View.extend({
       L.marker(location).addTo(map);
     });
     */
-  }
+  }/*,
+  updateView: function() {
+    var location = this.get('controller.location').objectAt(0);
+    
+    var mapCenter = [ location.lat, location.long];
+
+    var map = L.map('map').panTo( mapCenter, 12);
+  }.observes('controller')*/
 });

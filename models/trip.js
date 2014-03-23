@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var Trip = new mongoose.Schema({
   _id: String,
   name: String,
+  description: String,
   users: [ String ],
   places: [ Place ],
   location: [ Location ]
