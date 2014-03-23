@@ -197,8 +197,9 @@
           </div>
           
           <div class="trip-container col-md-10 col-md-offset-1">
-            <div class="card-list">
+            
             {{#each places}}
+            <div class="card-list">
               <img class="img-responsive card-img" {{bind-attr src=photo_url}}>
               <button class="add-button">Add</button>
               <div class="h-info">
@@ -218,8 +219,8 @@
                   <li class="vote">Votes: <span class="green">3</span></li>
                 </ul>
               </div>
+              </div>
             {{/each}}
-            </div>
           </div>
         </div>{{!--End of row--}}
         {{!-- MAP THIS NEED TO TURN ON AND OFF --}}
