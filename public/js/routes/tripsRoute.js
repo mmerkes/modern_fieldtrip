@@ -3,7 +3,6 @@ App.TripsRoute = Ember.Route.extend({
     return Ember.$.getJSON('api/v1/trips').then( function(data) {
       data = data.map( function( item ) {
         item.id = item._id;
-        item.location = Em.Object.create(item.location);
         return Em.Object.create(item);
       });
 
