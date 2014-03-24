@@ -3,7 +3,7 @@
   <head profile="http://www.w3.org/2005/10/profile">
     <link rel="shortcut icon" 
       type="image/png" 
-      href="public/images/myicon.png">
+      href="public/images/fav-icon.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,25 +23,7 @@
     </script>
 
     <script type="text/x-handlebars" id="index">
-      <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false"  class="navbar-brand" href="#"><img class="img-responsive logo" src="public/images/logo_final_white-02.png"></a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              {{!-- <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#about">About</a></li>
-              <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#features">Features</a></li>
-              <li><a data-scroll data-speed="400" data-easing="easeInOutCubic" data-url="false" href="#buy">Buy</a></li> --}}
-            </ul>
-          </div>
-        </div>
-      </div> 
+      <a class="logo-con "  href="home.html"><img class="img-responsive logo-dash logo-home" src="public/images/logo_final_white-02.png"></a>
 
       <div class="jumbotron">
         <div class="container">
@@ -51,14 +33,29 @@
           </div>
         </div>
       </div>
+       <div class="row about trip-row">
+        <div class="product-img col-md-6">
+          <img src="public/images/mock-4.png">
+        </div>
+        <div class="col-md-6 mockup-desc">
+          <ul>
+            <li>Seamlessly create and edit an itinerary with friends.</li>
+            <li>Vote items up and down to assemble a list of destinations that appeals to everyone in your group.</li>
+            <li>Instantly access your itinerary from anywhere with your mobile phone using the Modern Field Trip mobile app.</li>
+            <li>Get up-to-date information on your destinations including Business Hours, Addresses and Directions.</li>
+          </ul>
+        </div>
 
+      </div> 
       <div class="container-fluid trip-section">
         <div class="row trip-row">
+          <h1 class="recent-trips">Recent Trips</h1>
           <div class="trip-container col-md-4">
             <div class="trip">
+              <div class="img-container-trips">
               <img class="img-responsive trip-img"  src="public/images/lake-chelan.jpg" alt="Chelan">
+            </div>
               <img class="profile" src="public/images/profile.png">
-              <button class="add-button">Add</button>
               <h3>Lake Chelan</h3>
               <h4>By Katie Daiger</h4>
               <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
@@ -68,7 +65,9 @@
           </div>
           <div class="trip-container col-md-4">
             <div class="trip">
+              <div class="img-container-trips">
               <img class="img-responsive trip-img"  src="public/images/pumpkin-farm.jpg" alt="mountain">
+            </div>
               <img class="profile" src="public/images/profile-girl.png">
               <h3>Mountain Hike</h3>
               <h4>By Amy Jones</h4>
@@ -79,7 +78,9 @@
           </div>
           <div class="trip-container col-md-4">
             <div class="trip">
+              <div class="img-container-trips">
               <img class="img-responsive trip-img"  src="public/images/flower-field.jpg" alt="flower">
+            </div>
               <img class="profile" src="public/images/profile-man.png">
               <h3>Tulip Field</h3>
               <h4>By Mike Drew</h4>
@@ -90,9 +91,37 @@
           </div>
           <div class="trip-container col-md-4">
             <div class="trip">
-              <img class="img-responsive trip-img"  src="public/images/flower-field.jpg" alt="flower">
+              <div class="img-container-trips">
+              <img class="img-responsive trip-img"  src="public/images/kakao.jpg" alt="flower">
+            </div>
               <img class="profile" src="public/images/profile-man.png">
-              <h3>Tulip Field</h3>
+              <h3>The Best Spots</h3>
+              <h4>By Jed Welling</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
+               <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div> 
+            </div>
+          </div>
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <div class="img-container-trips">
+              <img class="img-responsive trip-img"  src="public/images/Frye_museum.jpg" alt="flower">
+              </div>
+              <img class="profile" src="public/images/profile.png">
+              <h3>The Frye Museum Tour</h3>
+              <h4>By Mike Drew</h4>
+              <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
+               <p class="category-field">Fieldtrip</p>
+              <div class="fieldtrip-bar"></div> 
+            </div>
+          </div>
+          <div class="trip-container col-md-4">
+            <div class="trip">
+              <div class="img-container-trips">
+              <img class="img-responsive trip-img"  src="public/images/Town_Hall.jpg" alt="flower">
+              </div>
+              <img class="profile" src="public/images/profile-girl.png">
+              <h3>History Trip</h3>
               <h4>By Mike Drew</h4>
               <p>Praesent elementum ligula eget quam molestie eleifend. Donec posuere est et faucibus.</p>
                <p class="category-field">Fieldtrip</p>
@@ -103,6 +132,9 @@
 
         </div>{{!--End of row--}}
       </div> {{!--End of Trip Container--}}
+      <div class="container-fluid contact">
+      <h3>Made with love at Redesign Seattle Startup Weekend</h3>
+      </div>
     </script>
 
     <script type="text/x-handlebars" id="trips">
@@ -187,8 +219,6 @@
     </script>
 
     <script type="text/x-handlebars" id="trip">
-      <button class="map-button">MAP</button>
-
       <div class="container-fluid explore-section">
         {{!-- map-extend THIS NEED TO TURN ON AND OFF. OFF being the default --}}
         <div class="row trip-row explore map-extend">
@@ -226,8 +256,9 @@
         {{!-- MAP THIS NEED TO TURN ON AND OFF --}}
       <div class="row map" id="map"></div>
       </div> {{!--End of Trip Container--}}
-
-        <div id="map" class="map"></div>
+      <div class="container-fluid contact">
+        <h3>Made with love at Redesign Seattle Startup Weekend</h3>
+      </div>
     </script>
 
     <!-- dependencies --> 
