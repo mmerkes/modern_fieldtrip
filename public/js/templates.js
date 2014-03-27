@@ -40,6 +40,26 @@ function program1(depth0,data) {
   
 });
 
+Ember.TEMPLATES["login"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"Enter email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n  </form>\n  </div>\n</div>\n");
+  
+});
+
+Ember.TEMPLATES["signup"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"first_name\">First Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"first_name\" placeholder=\"Enter first name\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"last_name\">Last Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"last_name\" placeholder=\"Enter last name\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"Enter email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Retype Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n  </form>\n  </div>\n</div>\n");
+  
+});
+
 Ember.TEMPLATES["trip"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
