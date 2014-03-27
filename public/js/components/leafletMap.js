@@ -32,5 +32,9 @@ App.LeafletMapComponent = Ember.Component.extend({
         $('[data-id="' + id + '"]').toggle();
       });
     });
-  }
+  },
+
+  redrawMap: function() {
+    this.rerender();
+  }.observes('controller.location')
 });

@@ -23,11 +23,13 @@ app.configure(function() {
   app.use(app.router);
 });
 
+  console.log('mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB);
+
 
 app.configure('development', function() {
   console.log('In development mode');
   app.use(express.errorHandler());
-  mongoose.connect( 'mongodb://' + process.env.MONGOU + ':' + process.env.MONGOP + '@ds053428.mongolab.com:53428/noobjs_posts' );
+  mongoose.connect( 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB );
 });
 
 app.configure('test', function() {
