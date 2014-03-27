@@ -1,0 +1,20 @@
+{{!-- Dashboard --}}
+<div class="container dashboard" id="dashboard">
+  <a   href="home.html"><img class="img-responsive logo-dash" src="public/images/logo_final_white-02.png"></a>
+  <a class="user" href="#">
+    <div class="user-img">
+      <img class="img-responsive" src="public/images/profile-girl.png">
+    </div>
+    <h3>Amy Jones</h3>
+  </a>
+  <div class="field-trips">
+    <ul>
+      {{#each}}
+          {{#link-to 'trip' this tagName="li"}}<a href="#">{{name}}</a>{{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+{{!-- dashboard end --}}
+
+{{outlet}}

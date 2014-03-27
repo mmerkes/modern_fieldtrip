@@ -1,0 +1,40 @@
+<div class="container-fluid explore-section">
+{{!-- map-extend THIS NEED TO TURN ON AND OFF. OFF being the default --}}
+<div class="row trip-row explore map-extend">
+  <div class="title">
+    <h1>{{name}}</h1>
+  </div>
+  
+  <div class="trip-container col-md-10 col-md-offset-1">
+    
+    {{#each places}}
+    <div class="card-list" {{bind-attr data-id=name}}>
+      <img class="img-responsive card-img" {{bind-attr src=photo_url}}>
+      <button class="add-button">Add</button>
+      <div class="h-info">
+        <h3>{{name}}</h3>
+        <h4></h4>
+        <p>{{description}}</p>
+      </div>
+      <div class="h-info-category">
+        <p class="category">location</p>
+        <div class="other-bar"></div>
+      </div>
+      <div class="h-info-details">
+        <ul>
+          <li class="hours">Hours:</li>
+          <li class="days"><span class="green">M T W T</span> F S S</li>
+          <li class="price">Price: <span class="green">$$</span></li>
+          <li class="vote">Votes: <span class="green">3</span></li>
+        </ul>
+      </div>
+      </div>
+    {{/each}}
+  </div>
+</div>{{!--End of row--}}
+{{!-- MAP THIS NEED TO TURN ON AND OFF --}}
+{{leaflet-map location=location places=places}}
+</div> {{!--End of Trip Container--}}
+<div class="container-fluid contact">
+<h3>Made with love at Redesign Seattle Startup Weekend</h3>
+</div>
