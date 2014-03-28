@@ -21,6 +21,27 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 });
 
+Ember.TEMPLATES["components/place-card"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<img class=\"img-responsive card-img\" ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'src': ("place.photo_url")
+  },hashTypes:{'src': "ID"},hashContexts:{'src': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n<button class=\"add-button\">Add</button>\n<div class=\"h-info\">\n  <h3>");
+  stack1 = helpers._triageMustache.call(depth0, "place.name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</h3>\n  <h4></h4>\n  <p>");
+  stack1 = helpers._triageMustache.call(depth0, "place.description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</p>\n</div>\n<div class=\"h-info-category\">\n  <p class=\"category\">location</p>\n  <div class=\"other-bar\"></div>\n</div>\n<div class=\"h-info-details\">\n  <ul>\n    <li class=\"hours\">Hours:</li>\n    <li class=\"days\"><span class=\"green\">M T W T</span> F S S</li>\n    <li class=\"price\">Price: <span class=\"green\">$$</span></li>\n    <li class=\"vote\">Votes: <span class=\"green\">3</span></li>\n  </ul>\n</div>\n");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["index"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -125,26 +146,16 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["trip"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
-  var buffer = '', stack1;
-  data.buffer.push("\n    <div class=\"card-list\" ");
-  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-    'data-id': ("name")
-  },hashTypes:{'data-id': "ID"},hashContexts:{'data-id': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n      <img class=\"img-responsive card-img\" ");
-  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-    'src': ("photo_url")
-  },hashTypes:{'src': "ID"},hashContexts:{'src': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n      <button class=\"add-button\">Add</button>\n      <div class=\"h-info\">\n        <h3>");
-  stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h3>\n        <h4></h4>\n        <p>");
-  stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</p>\n      </div>\n      <div class=\"h-info-category\">\n        <p class=\"category\">location</p>\n        <div class=\"other-bar\"></div>\n      </div>\n      <div class=\"h-info-details\">\n        <ul>\n          <li class=\"hours\">Hours:</li>\n          <li class=\"days\"><span class=\"green\">M T W T</span> F S S</li>\n          <li class=\"price\">Price: <span class=\"green\">$$</span></li>\n          <li class=\"vote\">Votes: <span class=\"green\">3</span></li>\n        </ul>\n      </div>\n      </div>\n    ");
+  var buffer = '', helper, options;
+  data.buffer.push("\n      ");
+  data.buffer.push(escapeExpression((helper = helpers['place-card'] || (depth0 && depth0['place-card']),options={hash:{
+    'place': ("place")
+  },hashTypes:{'place': "ID"},hashContexts:{'place': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "place-card", options))));
+  data.buffer.push("\n    ");
   return buffer;
   }
 
@@ -152,7 +163,7 @@ function program1(depth0,data) {
   stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</h1>\n  </div>\n  \n  <div class=\"trip-container col-md-10 col-md-offset-1\">\n    \n    ");
-  stack1 = helpers.each.call(depth0, "places", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
+  stack1 = helpers.each.call(depth0, "place", "in", "places", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </div>\n</div>\n\n");
   data.buffer.push(escapeExpression((helper = helpers['leaflet-map'] || (depth0 && depth0['leaflet-map']),options={hash:{

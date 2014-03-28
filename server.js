@@ -34,12 +34,12 @@ app.configure('test', function() {
   mongoose.connect( 'mongodb://' + process.env.MONGOU + ':' + process.env.MONGOP + '@ds053428.mongolab.com:53428/fieldtrip' );
 });
 
-var core = require('./routes/core.js');
+var session = require('./routes/session.js');
 var trips = require('./routes/trips.js');
 
  // Core Routes
- app.post('/login', core.login);
- app.post('/signup', core.signup);
+ app.post('/login', session.login);
+ app.post('/signup', session.signup);
 
 // Trip routes
 app.get('/api/v1/trips', trips.collection);
