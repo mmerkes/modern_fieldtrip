@@ -2,10 +2,10 @@ App.LoginController = Ember.ObjectController.extend({
   actions: {
     login: function() {
       var self = this;
-      var username = this.get('email');
+      var email = this.get('email');
       var password = this.get('password');
       
-      $.post('login', { username: username, password: password }, function() {
+      $.post('login', { email: email, password: password }, function() {
         self.transitionToRoute('trips');
       }).fail( function() {
         alert('Invalid login');

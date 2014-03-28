@@ -162,7 +162,7 @@ function program1(depth0,data) {
   data.buffer.push("<div class=\"container-fluid explore-section\">\n\n<div class=\"row trip-row explore map-extend\">\n  <div class=\"title\">\n    <h1>");
   stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h1>\n  </div>\n  \n  <div class=\"trip-container col-md-10 col-md-offset-1\">\n    \n    ");
+  data.buffer.push("</h1>\n  </div>\n  \n  <div class=\"trip-container col-md-10 col-md-offset-1\">   \n    ");
   stack1 = helpers.each.call(depth0, "place", "in", "places", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </div>\n</div>\n\n");

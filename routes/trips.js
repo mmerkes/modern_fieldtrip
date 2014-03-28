@@ -5,8 +5,7 @@ exports.collection = function(request, response) {
 
   Trip.find({}, function(error, trips) {
     if(error) {
-      response.writeHead(500);
-      response.send({'error': error});
+      errorResponse(error);
     }
     response.send( trips );
   });
@@ -21,8 +20,7 @@ exports.create = function(request, response) {
 
   trip.save(function(error, trip) {
     if(error) {
-      response.writeHead(500);
-      response.send({'error': error});
+      errorResponse(error);
     } else {
       response.send(trip);
     }
@@ -34,7 +32,7 @@ exports.findById = function(request, response) {
 
   Trip.findOne({ _id: request.params.id}, function(error, trip) {
     if(error) {
-      errorResponse();
+      errorResponse(error);
     } else {
       response.send(trip);
     }
@@ -46,7 +44,7 @@ exports.update = function(request, response) {
 
   Trip.update({_id: request.params.id}, request.body, function(error) {
     if(error) {
-      errorResponse();
+      errorResponse(error);
     } else {
       response.send({'message': "Success"});
     }
@@ -56,7 +54,7 @@ exports.update = function(request, response) {
 exports.destroy = function(request, response) {
   Trip.remove({_id: request.params.id}, function(error) {
     if(error) {
-      errorResponse();
+      errorResponse(error);
     } else {
       response.send({'message': 'Success'});
     }
@@ -79,7 +77,7 @@ exports.vote = function(request, response) {
 
     doc.save( function(error) {
       if(error) {
-        errorResponse();
+        errorResponse(error);
       } else {
         response.send({'message': 'Success'});
       }
@@ -87,7 +85,7 @@ exports.vote = function(request, response) {
   });
 }
 
-function errorResponse() {
+function errorResponse(error) {
   response.writeHead(500);
   response.send({'error': error});
 };
