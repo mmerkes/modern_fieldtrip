@@ -23,9 +23,6 @@ app.configure(function() {
   app.use(app.router);
 });
 
-  console.log('mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB);
-
-
 app.configure('development', function() {
   console.log('In development mode');
   app.use(express.errorHandler());
@@ -37,7 +34,12 @@ app.configure('test', function() {
   mongoose.connect( 'mongodb://' + process.env.MONGOU + ':' + process.env.MONGOP + '@ds053428.mongolab.com:53428/fieldtrip' );
 });
 
- var trips = require('./routes/trips.js');
+var core = require('./routes/core.js');
+var trips = require('./routes/trips.js');
+
+ // Core Routes
+ app.post('/login', core.login);
+ app.post('/signup', core.signup);
 
 // Trip routes
 app.get('/api/v1/trips', trips.collection);

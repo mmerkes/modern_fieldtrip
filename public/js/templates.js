@@ -43,20 +43,82 @@ function program1(depth0,data) {
 Ember.TEMPLATES["login"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
+  var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"Enter email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n  </form>\n  </div>\n</div>\n");
+  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("email"),
+    'class': ("form-control"),
+    'id': ("email"),
+    'placeholder': ("Enter email"),
+    'value': ("email")
+  },hashTypes:{'type': "STRING",'class': "STRING",'id': "STRING",'placeholder': "STRING",'value': "ID"},hashContexts:{'type': depth0,'class': depth0,'id': depth0,'placeholder': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("password"),
+    'class': ("form-control"),
+    'id': ("password"),
+    'value': ("password"),
+    'placeholder': ("Password")
+  },hashTypes:{'type': "STRING",'class': "STRING",'id': "STRING",'value': "ID",'placeholder': "STRING"},hashContexts:{'type': depth0,'class': depth0,'id': depth0,'value': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "login", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(" class=\"btn btn-default\">Login</button>\n  </form>\n  </div>\n</div>\n");
+  return buffer;
   
 });
 
 Ember.TEMPLATES["signup"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
+  var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"first_name\">First Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"first_name\" placeholder=\"Enter first name\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"last_name\">Last Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"last_name\" placeholder=\"Enter last name\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"Enter email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Retype Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n  </form>\n  </div>\n</div>\n");
+  data.buffer.push("<div class=\"container\">\n  <div class='row center-block'>\n  <form role=\"form\">\n    <div class=\"form-group\">\n      <label for=\"first_name\">First Name</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("text"),
+    'value': ("first_name"),
+    'class': ("form-control"),
+    'id': ("first_name"),
+    'placeholder': ("Enter first name")
+  },hashTypes:{'type': "STRING",'value': "ID",'class': "STRING",'id': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'class': depth0,'id': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <div class=\"form-group\">\n      <label for=\"last_name\">Last Name</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("text"),
+    'value': ("last_name"),
+    'class': ("form-control"),
+    'id': ("last_name"),
+    'placeholder': ("Enter last name")
+  },hashTypes:{'type': "STRING",'value': "ID",'class': "STRING",'id': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'class': depth0,'id': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <div class=\"form-group\">\n      <label for=\"email\">Email address</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("email"),
+    'value': ("email"),
+    'class': ("form-control"),
+    'id': ("email"),
+    'placeholder': ("Enter email")
+  },hashTypes:{'type': "STRING",'value': "ID",'class': "STRING",'id': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'class': depth0,'id': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("password"),
+    'value': ("password"),
+    'class': ("form-control"),
+    'id': ("password"),
+    'placeholder': ("Password")
+  },hashTypes:{'type': "STRING",'value': "ID",'class': "STRING",'id': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'class': depth0,'id': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password2\">Retype Password</label>\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
+    'type': ("password"),
+    'value': ("password2"),
+    'class': ("form-control"),
+    'id': ("password2"),
+    'placeholder': ("Password")
+  },hashTypes:{'type': "STRING",'value': "ID",'class': "STRING",'id': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'class': depth0,'id': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    </div>\n    <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "signup", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(" class=\"btn btn-default\">Login</button>\n  </form>\n  </div>\n</div>\n");
+  return buffer;
   
 });
 
