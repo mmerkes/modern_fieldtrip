@@ -23,7 +23,7 @@ app.configure(function() {
   app.use(app.router);
 });
 
-app.configure('development', function() {
+app.configure('dev', function() {
   console.log('In development mode');
   app.use(express.errorHandler());
   mongoose.connect( 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB );

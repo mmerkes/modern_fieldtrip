@@ -1,28 +1,21 @@
 var User = require('../models/user');
 
 exports.login = function(request, response) {
-  response.setHeader("Content-Type", "text/json");
+  response.setHeader("Content-Type", "application/json");
   
   User.findOne({ email: request.body.email }, function(error, user) {
     if( error || user.password !== request.body.password ) {
       errorResponse(error);
     } else {
-      delete user.password;
       response.send(user);
     }
   });
 };
 
 exports.signup = function(request, response) {
-  response.setHeader("Content-Type", "text/json");
-  var data = request.body;
-  
-  var user = new User({
-    first_name: data.first_name,
-    last_name: data.last_name,
-    email: data.email,
-    password: data.password
-  });
+  response.setHeader("Content-Type", "application/json");
+
+  var user = new User(request.body);
 
   user.save( function( error, user ) {
     if( error ) {
