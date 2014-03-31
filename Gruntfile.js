@@ -1,6 +1,7 @@
 'use strict';
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    User = require('./models/user');
 
 module.exports = function( grunt ) {
   grunt.initConfig({
@@ -124,25 +125,30 @@ module.exports = function( grunt ) {
           livereload: true
         }
       }
+    },
+    casperjs: {
+      options: {
+        async: {
+          parallel: false
+        }
+      },
+      files: ['tests/acceptance/index_page_spec.js',
+              'tests/acceptance/signup_page_spec.js',
+              'tests/acceptance/login_page_spec.js'
+      ]
     }
   });
-/*
-  grunt.registerTask('dropDB', 'drop the database', function() {
+
+  grunt.registerTask('dropUsers', 'drop the users collection', function() {
     // async mode
     var done = this.async();
-    mongoose.connect( 'mongodb://' + process.env.MONGOU + ':' + process.env.MONGOP + '@ds053428.mongolab.com:53428/noobjs_posts' );
 
-    db.mongoose.connection.on('open', function () { 
-      db.mongoose.connection.db.dropDatabase(function(err) {
-        if(err) {
-          console.log(err);
-        } else {
-          console.log('Successfully dropped db');
-        }
-        db.mongoose.connection.close(done);
-      });
+    mongoose.connect( 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB );
+    
+    User.remove({}, function() {
+      done();
     });
-  }); */
+  });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -154,6 +160,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-casperjs');
 
+  grunt.registerTask('test:acceptance', ['build:dev', 'env:dev', 'express:dev', 'casperjs', 'dropUsers'])
   grunt.registerTask('build:dev', ['emberTemplates']);
   grunt.registerTask('build:prod', ['clean', 'emberTemplates', 'concat', 'uglify']);
   grunt.registerTask('server', [ 'env:dev', 'build:dev', 'express:dev', 'watch:express']);
