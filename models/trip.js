@@ -4,6 +4,7 @@ var User = require('./user');
 var Place = require('./place');
 var Location = require('./location');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var Trip = new mongoose.Schema({
   _id: String,
@@ -11,7 +12,12 @@ var Trip = new mongoose.Schema({
   description: String,
   users: [ String ],
   places: [ Place ],
-  location: [ Location ]
+  location: {
+    lat: Number,
+    long: Number,
+    city: String,
+    state: String
+  }
 });
 
 module.exports = mongoose.model('Trip', Trip);

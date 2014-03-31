@@ -5,7 +5,7 @@ exports.login = function(request, response) {
   
   User.findOne({ email: request.body.email }, function(error, user) {
     if( error || user.password !== request.body.password ) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send(user);
     }
@@ -19,14 +19,9 @@ exports.signup = function(request, response) {
 
   user.save( function( error, user ) {
     if( error ) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send(user);
     }
   });
-};
-
-function errorResponse() {
-  response.writeHead(500);
-  response.send({'error': error});
 };

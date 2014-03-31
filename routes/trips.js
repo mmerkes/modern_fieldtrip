@@ -1,11 +1,11 @@
 var Trip = require('../models/trip.js');
 
 exports.collection = function(request, response) {
-  response.setHeader("Content-Type", "text/json");
+  response.setHeader('Content-Type', 'application/json');
 
   Trip.find({}, function(error, trips) {
     if(error) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     }
     response.send( trips );
   });
@@ -20,7 +20,7 @@ exports.create = function(request, response) {
 
   trip.save(function(error, trip) {
     if(error) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send(trip);
     }
@@ -32,7 +32,7 @@ exports.findById = function(request, response) {
 
   Trip.findOne({ _id: request.params.id}, function(error, trip) {
     if(error) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send(trip);
     }
@@ -44,7 +44,7 @@ exports.update = function(request, response) {
 
   Trip.update({_id: request.params.id}, request.body, function(error) {
     if(error) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send({'message': "Success"});
     }
@@ -54,7 +54,7 @@ exports.update = function(request, response) {
 exports.destroy = function(request, response) {
   Trip.remove({_id: request.params.id}, function(error) {
     if(error) {
-      errorResponse(error);
+      response.send(500, {'error': error});
     } else {
       response.send({'message': 'Success'});
     }
@@ -65,7 +65,6 @@ exports.vote = function(request, response) {
   console.log('voting');
   Trip.findById( request.params.id, function(err, doc) {
     doc.places.forEach(function(place, index) {
-      console.log( place.name + request.params.place_name );
       if( place.name === request.params.place_name ) {
         if( request.params.vote === 'up' ) {
           doc.places[index].votes++;
@@ -77,16 +76,11 @@ exports.vote = function(request, response) {
 
     doc.save( function(error) {
       if(error) {
-        errorResponse(error);
+        response.send(500, {'error': error});
       } else {
         response.send({'message': 'Success'});
       }
     });
   });
 }
-
-function errorResponse(error) {
-  response.writeHead(500);
-  response.send({'error': error});
-};
 
