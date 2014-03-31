@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
       options: {
       },
       dev: {
-        NODE_ENV: 'development'
+        NODE_ENV: 'dev'
       },
       test: {
         NODE_ENV: 'test'
@@ -90,7 +90,7 @@ module.exports = function( grunt ) {
       dev: {
         options: {
           script: 'server.js',
-          node_env: 'development'
+          node_env: 'dev'
         }
       },
       prod: {
@@ -152,6 +152,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-ember-templates');
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-casperjs');
 
   grunt.registerTask('build:dev', ['emberTemplates']);
   grunt.registerTask('build:prod', ['clean', 'emberTemplates', 'concat', 'uglify']);

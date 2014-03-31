@@ -1,12 +1,12 @@
 App.LeafletMapComponent = Ember.Component.extend({
   didInsertElement: function() {
-    var location = this.get('location')[0];
-    var places = this.get('places');
+    var location = this.location;
+    var places = this.places;
     
     var mapCenter = [ location.lat, location.long ];
 
     var markers = places.map( function(place) {
-      var loc = place.location[0];
+      var loc = place.location;
       return {
         location: [ loc.lat, loc.long ], 
         options: {
@@ -17,6 +17,8 @@ App.LeafletMapComponent = Ember.Component.extend({
         }
       };
     });
+
+    console.log("Markers " + markers);
 
     var map = L.map('map').setView( mapCenter, 12);
 

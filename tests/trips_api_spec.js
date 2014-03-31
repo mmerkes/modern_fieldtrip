@@ -4,9 +4,7 @@ var superagent = require('superagent'),
     chai = require('chai'),
     expect = chai.expect,
     should = chai.should(),
-    app = require('../server').app,
-    mongoose = require('mongoose'),
-    Trip = require('../models/trip');
+    app = require('../server').app;
 
 
 describe('Sessions JSON api', function() {
