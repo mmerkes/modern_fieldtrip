@@ -1,15 +1,31 @@
 var Trip = require('../models/trip.js');
 
 exports.collection = function(request, response) {
-  response.setHeader('Content-Type', 'application/json');
+  if( validTokenProvided(request, response) ) {
+    response.setHeader('Content-Type', 'application/json');
 
-  Trip.find({}, function(error, trips) {
-    if(error) {
-      response.send(500, {'error': error});
-    }
-    response.send( trips );
-  });
+    Trip.find({}, function(error, trips) {
+      if(error) {
+        response.send(500, {'error': error});
+      }
+      response.send( trips );
+    });
+  }
 };
+
+currentToken = 'abcdefghijklmnopqrstuvwxyz';
+
+function validTokenProvided(request, response) {
+  var userToken = request.body.token || request.param('token');
+
+  if(!currentToken || userToken !== currentToken) {
+    response.send(401, { error: 'Invalid token.'})
+    return false;
+  }
+
+  return true;
+}
+
 
 exports.create = function(request, response) {
   response.setHeader('Content-Type', 'application/json');

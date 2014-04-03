@@ -11,5 +11,8 @@
     </div>
     <button type="submit" {{action 'login'}} class="btn btn-default">Login</button>
   </form>
+  {{#if errorMessage}}
+    <div>{{errorMessage}}</div>
+  {{/if}}
   </div>
 </div>

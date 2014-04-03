@@ -136,6 +136,15 @@ module.exports = function( grunt ) {
               'tests/acceptance/signup_page_spec.js',
               'tests/acceptance/login_page_spec.js'
       ]
+    },
+    // Configure a mochaTest task
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['tests/*.js']
+      }
     }
   });
 
@@ -159,8 +168,10 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-casperjs');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('test:acceptance', ['build:dev', 'env:dev', 'express:dev', 'casperjs', 'dropUsers'])
+  grunt.registerTask('test', ['build:dev', 'env:dev', 'mochaTest']);
+  grunt.registerTask('test:acceptance', ['build:dev', 'express:dev', 'casperjs', 'dropUsers'])
   grunt.registerTask('build:dev', ['emberTemplates']);
   grunt.registerTask('build:prod', ['clean', 'emberTemplates', 'concat', 'uglify']);
   grunt.registerTask('server', [ 'env:dev', 'build:dev', 'express:dev', 'watch:express']);
