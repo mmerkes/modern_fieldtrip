@@ -1,6 +1,6 @@
-App.TripsRoute = App.AuthenticatedRoute.extend({
+App.TripsRoute = Ember.Route.extend({
   model: function() {
-    return Ember.$.getJSON('api/v1/trips', {token: this.getToken()}).then( function(data) {
+    return Ember.$.getJSON('api/v1/trips').then( function(data) {
       data = data.map( function( item ) {
         item.id = item._id;
         return Em.Object.create(item);

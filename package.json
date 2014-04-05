@@ -16,7 +16,9 @@
     "passport-facebook": "^1.0.3",
     "passport-google-oauth": "^0.1.5",
     "passport-twitter": "^1.0.2",
-    "connect-flash": "^0.1.1"
+    "passport-http-bearer": "^1.0.1",
+    "crypto": "0.0.3",
+    "bcrypt": "^0.7.7"
   },
   "repository": {
     "type": "git",

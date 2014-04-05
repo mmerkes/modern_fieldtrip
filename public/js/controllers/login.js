@@ -1,4 +1,11 @@
-App.LoginController = Ember.Controller.extend({
+App.LoginController = Ember.Controller.extend(Ember.SimpleAuth.LoginControllerMixin, {
+  actions: {
+    loginFailed: function(xhr) {
+      this.set('errorMessage', xhr.responseText);
+    }
+  }
+});
+/* App.LoginController = Ember.Controller.extend({
   reset: function() {
     this.setProperties({
       username: "",
@@ -24,21 +31,21 @@ App.LoginController = Ember.Controller.extend({
         self.set('errorMessage', response.message);
 
         if(response.success) {
-          self.set('token', response.token);
+          self.set('token', response.sessionID);
 
           var attemptedTransition = self.get('attemptedTransition');
           if (attemptedTransition) {
             attemptedTransition.retry();
             self.set('attemptedTransition', null);
           } else {
-            // Redirect to 'articles' by default.
+            // Redirect to 'index' by default.
             self.transitionToRoute('index');
           }
         }
       });
     }
   }
-});
+}); */
 
 // How to check for a cookie on login
 // How to handle a failed login besides getting rejected

@@ -1,27 +1,44 @@
 <div class="container">
-  <div class='row center-block'>
-  <form role="form">
-    <div class="form-group">
-      <label for="first_name">First Name</label>
-      {{input type="text" value=first_name class="form-control" id="first_name" placeholder="Enter first name"}}
-    </div>
-    <div class="form-group">
-      <label for="last_name">Last Name</label>
-      {{input type="text" value=last_name class="form-control" id="last_name" placeholder="Enter last name"}}
-    </div>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      {{input type="email" value=email class="form-control" id="email" placeholder="Enter email"}}
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      {{input type="password" value=password class="form-control" id="password" placeholder="Password"}}
-    </div>
-    <div class="form-group">
-      <label for="password2">Retype Password</label>
-      {{input type="password" value=password2 class="form-control" id="password2" placeholder="Password"}}
-    </div>
-    <button type="submit" {{action 'signup'}} class="btn btn-default">Login</button>
-  </form>
+  <div class="page-header">
+    <h3>Create Account</h3>
+  </div>
+  <div class="col-sm-8 col-sm-offset-2">
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+
+    <form {{action "signup" on="submit"}}>
+      <div class="form-group text-center">
+        <a class="btn btn-social btn-facebook">
+          <i class="fa fa-facebook"></i>
+          Sign in with Facebook
+        </a>
+      </div>
+      <div class="form-group">
+        <label for="first_name" class="control-label">First Name</label>
+        {{input type="text" class="form-control" value=first_name autofocus="autofocus"}}
+      </div>
+      <div class="form-group">
+        <label for="first_name" class="control-label">Last Name</label>
+        {{input type="text" class="form-control" value=last_name autofocus="autofocus"}}
+      </div>
+      <div class="form-group">
+        <label for="email" class="control-label">Email</label>
+        {{input type="text" class="form-control" value=email}}
+      </div>
+      <div class="form-group">
+        <label for="password" class="control-label">Password</label>
+        {{input type="password" class="form-control" value=password}}
+        <small class="help-block">Must be at least 8 characters long.</small>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword" class="control-label">Confirm Password</label>
+        {{input type="password" class="form-control" value=confirmPassword}}
+      </div>
+      <button type="submit" class="btn btn-success" {{bind-attr disabled="isProcessing"}}><i class="fa fa-rocket"></i> Sign up</button>
+    </form>
   </div>
 </div>

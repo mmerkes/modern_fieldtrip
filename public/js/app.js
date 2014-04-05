@@ -1,5 +1,5 @@
-window.App = Ember.Application.create();
-
+//window.App = Ember.Application.create();
+/*
 App.AuthenticatedRoute = Ember.Route.extend({
   beforeModel: function(transition) {
     if( !this.controllerFor('login').get('token')) {
@@ -28,4 +28,15 @@ App.AuthenticatedRoute = Ember.Route.extend({
       }
     }
   }
+}); */
+
+Ember.Application.initializer({
+  name: 'authentication',
+  initialize: function(container, application) {
+    Ember.SimpleAuth.setup(container, application);
+  }
+});
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
 });
