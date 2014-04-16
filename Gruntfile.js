@@ -110,8 +110,8 @@ module.exports = function( grunt ) {
 
     watch: {
       express: {
-        files:  [ 
-          'public/js/**/*', 
+        files:  [
+          'public/js/**/*',
           'server.js',
           'routes/**/*.js',
           'models/**/*.js',
@@ -134,7 +134,9 @@ module.exports = function( grunt ) {
       },
       files: ['tests/acceptance/index_page_spec.js',
               'tests/acceptance/signup_page_spec.js',
-              'tests/acceptance/login_page_spec.js'
+              'tests/acceptance/login_page_spec.js',
+              'tests/acceptance/trips_page_spec.js',
+              'tests/acceptance/downtown_seattle_page_spec.js'
       ]
     }
   });
@@ -144,7 +146,7 @@ module.exports = function( grunt ) {
     var done = this.async();
 
     mongoose.connect( 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB );
-    
+
     User.remove({}, function() {
       done();
     });
